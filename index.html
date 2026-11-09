@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Women of MP3.com — Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orchid: #6B3FA0;
+    --orchid-dark: #4a2b72;
+    --orchid-light: #9b6dd1;
+    --lavender: #e8e2f5;
+    --lavender-mid: #c9bde8;
+    --cream: #faf8f4;
+    --ink: #1a1a2e;
+    --muted: #5c5c7a;
+    --warm-white: #f5f2ec;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  /* ── SITE NAV ── */
+  .site-nav {
+    background: var(--orchid-dark);
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .site-nav .nav-brand {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--lavender-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+  .site-nav .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin-left: auto;
+  }
+  .site-nav .nav-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--lavender);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+  .site-nav .nav-links a:hover { opacity: 1; }
+  .site-nav .nav-links a.current { color: #fff; opacity: 1; border-bottom: 1px solid var(--orchid-light); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--orchid-dark) 0%, var(--orchid) 60%, var(--orchid-light) 100%);
+    color: white;
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.025) 2px,
+      rgba(255,255,255,0.025) 4px
+    );
+  }
+  .hero-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lavender-mid);
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+    position: relative;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--lavender-mid);
+  }
+  .hero .hero-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.65);
+    margin-top: 0.75rem;
+    position: relative;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .main-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  /* ── RELIC NOTICE ── */
+  .relic-notice {
+    background: var(--warm-white);
+    border: 1px solid var(--lavender-mid);
+    border-left: 4px solid var(--orchid);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .relic-notice strong { color: var(--orchid-dark); }
+
+  /* ── PROSE ── */
+  .intro-section h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--orchid-dark);
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+  .intro-section p {
+    margin-bottom: 1.1rem;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+  .intro-section p + h2 { margin-top: 2rem; }
+
+  /* ── TIMELINE BLOCK ── */
+  .timeline {
+    margin: 2rem 0 2.5rem;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 0;
+  }
+  .timeline-item {
+    display: contents;
+  }
+  .timeline-year {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--orchid);
+    padding: 0.6rem 1rem 0.6rem 0;
+    border-right: 2px solid var(--lavender-mid);
+    text-align: right;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+  .timeline-text {
+    padding: 0.6rem 0 0.6rem 1.25rem;
+    font-size: 0.92rem;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .timeline-item:not(:last-child) .timeline-year,
+  .timeline-item:not(:last-child) .timeline-text {
+    border-bottom: 1px solid var(--lavender);
+  }
+
+  /* ── NAV CARDS ── */
+  .section-cards {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+  .section-card {
+    background: white;
+    border: 1px solid var(--lavender-mid);
+    border-top: 3px solid var(--orchid);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--ink);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .section-card:hover {
+    box-shadow: 0 4px 16px rgba(107,63,160,0.15);
+    transform: translateY(-2px);
+  }
+  .section-card .card-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--orchid);
+    margin-bottom: 0.5rem;
+  }
+  .section-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--orchid-dark);
+  }
+  .section-card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .section-card .card-arrow {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--orchid);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── STAT ROW ── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .stat-tile {
+    background: var(--orchid);
+    color: white;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .stat-tile .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    display: block;
+    font-style: italic;
+  }
+  .stat-tile .stat-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    display: block;
+    margin-top: 0.3rem;
+  }
+  .stat-note {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-top: 0.4rem;
+    line-height: 1.5;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--orchid-dark);
+    color: var(--lavender-mid);
+    text-align: center;
+    padding: 2rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+  }
+  .site-footer a {
+    color: var(--lavender);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Women of MP3.com</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="current">Archive</a></li>
+    <li><a href="cybermuse.html">CyberMuse Column</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Partial Archive · In Progress</div>
+  <h1>Women of <em>MP3.com</em></h1>
+  <div class="hero-sub">Oct 1999 – 2003 &nbsp;·&nbsp; MP3.com Independent Music Platform</div>
+</div>
+
+<div class="main-wrap">
+
+  <div class="relic-notice">
+    <strong>Archive note:</strong> This is a partial recovery. Not all pages were saved before the platform's shutdown.
+    Some links and images in the original files are broken — they are preserved here as-is, as a relic of the era.
+    MP3.com changed hands multiple times; not all issues and content survived the transitions.
+  </div>
+
+  <div class="intro-section">
+    <h2>What Was Women of MP3.com?</h2>
+    <p>Women of MP3.com (WoMP3) was an intrapreneur channel on MP3.com dedicated to women in independent music — as artists, writers, producers, and listeners. Sponsored by Sephora, it launched in October 1999 and ran until 2003, communicating with its audience through a weekly newsletter, artist features, and an editorial column.</p>
+
+    <p>At its height, MP3.com drew millions of registered users and hundreds of thousands of daily visitors. As a channel on that platform, WoMP3 built a dedicated readership of women-in-music fans and indie artists who knew exactly who we were — even if we weren't always on the front page.</p>
+
+    <p>The channel's editorial voice lived in <strong>CyberMuse</strong>, a column written by Jianda Johnson reviewing independent women artists on the platform. CyberMuse (later titled i-Muse) ran throughout the life of the channel, spotlighting artists across gospel, jazz, pop, electronic, ambient, and more.</p>
+
+    <div class="stat-row">
+      <div class="stat-tile">
+        <span class="stat-num">~200k</span>
+        <span class="stat-label">Est. Daily Visitors</span>
+      </div>
+      <div class="stat-tile">
+        <span class="stat-num">3.5–6M</span>
+        <span class="stat-label">Platform Users Reached</span>
+      </div>
+      <div class="stat-tile">
+        <span class="stat-num">4 yrs</span>
+        <span class="stat-label">Oct 1999 – 2003</span>
+      </div>
+    </div>
+    <p class="stat-note">* Figures extrapolated from MP3.com platform stats (845k daily visitors, 25M registered users at Q1 2001 peak). WoMP3 estimated at ~¼ of platform reach as a sponsored channel.</p>
+
+    <h2>About This Archive</h2>
+    <p>This archive is an ongoing recovery effort. What you'll find here are saved snapshots from the Wayback Machine and other sources — newsletter issues, the CyberMuse column, artist pages, and contextual pages that survived the platform's multiple ownership changes.</p>
+
+    <p>Many other people are working to preserve what's left of MP3.com. This collection focuses specifically on the Women of MP3.com channel and its editorial history. See the <a href="resources.html" style="color:var(--orchid);">Resources page</a> for the broader archival community's work.</p>
+
+    <h2>Timeline</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">1997</div>
+        <div class="timeline-text">MP3.com founded by Michael Robertson as an informational hub for MP3 technology and hardware.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1998–99</div>
+        <div class="timeline-text">Platform expands into artist hosting and distribution. Becomes one of the most trafficked sites on the web. Explosive IPO in July 1999.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">Oct 1999</div>
+        <div class="timeline-text"><strong>Women of MP3.com launches</strong>, sponsored by Sephora. Weekly newsletter, artist features, and CyberMuse column begin.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2000</div>
+        <div class="timeline-text">UMG v. MP3.com lawsuit. Court rules against MP3.com; $53.4M in damages to Universal alone. CyberMuse column continues through legal turbulence.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">Aug 2001</div>
+        <div class="timeline-text">Vivendi Universal acquires MP3.com. Platform loses independent identity under corporate ownership.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2001–03</div>
+        <div class="timeline-text">WoMP3 continues under Vivendi. CyberMuse column runs (i-Muse branding appears in 2001 issues). Coverage gaps due to ownership transitions.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2003</div>
+        <div class="timeline-text">CNET Networks acquires the domain. <strong>MP3.com shuts down December 2, 2003.</strong> Women of MP3.com ends with the platform.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-cards">
+    <a href="cybermuse.html" class="section-card">
+      <div class="card-label">Editorial Column</div>
+      <h3>CyberMuse</h3>
+      <p>The column written by Jianda Johnson — artist reviews, sonic landscapes, and independent women in music from 1999 to 2001. Partial recovery of surviving issues.</p>
+      <span class="card-arrow">Read the column →</span>
+    </a>
+    <a href="resources.html" class="section-card">
+      <div class="card-label">Broader Context</div>
+      <h3>Resources</h3>
+      <p>What other archivists are preserving from MP3.com, plus a history of the platform and the legal battles that defined early digital music.</p>
+      <span class="card-arrow">See resources →</span>
+    </a>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  Women of MP3.com Archive &nbsp;·&nbsp; Partial Recovery &nbsp;·&nbsp; In Progress<br>
+  Original channel: Oct 1999 – 2003 &nbsp;·&nbsp; Sponsored by Sephora
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources — Women of MP3.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orchid: #6B3FA0;
+    --orchid-dark: #4a2b72;
+    --orchid-light: #9b6dd1;
+    --lavender: #e8e2f5;
+    --lavender-mid: #c9bde8;
+    --cream: #faf8f4;
+    --ink: #1a1a2e;
+    --muted: #5c5c7a;
+    --warm-white: #f5f2ec;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  /* ── NAV ── */
+  .site-nav {
+    background: var(--orchid-dark);
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .site-nav .nav-brand {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--lavender-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+  .site-nav .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin-left: auto;
+  }
+  .site-nav .nav-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--lavender);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+  .site-nav .nav-links a:hover { opacity: 1; }
+  .site-nav .nav-links a.current { color: #fff; opacity: 1; border-bottom: 1px solid var(--orchid-light); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--orchid-dark) 0%, var(--orchid) 60%, var(--orchid-light) 100%);
+    color: white;
+    padding: 3.5rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.025) 2px,
+      rgba(255,255,255,0.025) 4px
+    );
+  }
+  .hero-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lavender-mid);
+    margin-bottom: 0.75rem;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+    position: relative;
+  }
+  .hero .hero-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.65);
+    margin-top: 0.75rem;
+    position: relative;
+  }
+
+  /* ── LAYOUT ── */
+  .main-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-h {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--orchid-dark);
+    margin-bottom: 0.5rem;
+    margin-top: 2.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--lavender-mid);
+  }
+  .section-h:first-of-type { margin-top: 0; }
+  .section-intro {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    line-height: 1.6;
+  }
+
+  /* ── RESOURCE CARDS ── */
+  .resource-card {
+    background: white;
+    border: 1px solid var(--lavender-mid);
+    border-left: 4px solid var(--orchid);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .resource-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--orchid-dark);
+    margin-bottom: 0.3rem;
+  }
+  .resource-card .res-url {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--orchid);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .resource-card .res-url a {
+    color: var(--orchid);
+    text-decoration: none;
+  }
+  .resource-card .res-url a:hover { text-decoration: underline; }
+  .resource-card p {
+    font-size: 0.9rem;
+    color: var(--ink);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+  .resource-card p:last-child { margin-bottom: 0; }
+
+  /* ── HISTORY SECTION ── */
+  .history-block {
+    background: white;
+    border: 1px solid var(--lavender-mid);
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+  .history-block h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--orchid-dark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .history-block h3:first-of-type { margin-top: 0; }
+  .history-block p {
+    font-size: 0.93rem;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+  .history-block ul {
+    margin: 0.5rem 0 0.75rem 1.25rem;
+  }
+  .history-block ul li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+  .history-block .era-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--orchid);
+    margin-top: 1.5rem;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--orchid-dark);
+    color: var(--lavender-mid);
+    text-align: center;
+    padding: 2rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+  }
+  .site-footer a {
+    color: var(--lavender);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Women of MP3.com</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Archive</a></li>
+    <li><a href="cybermuse.html">CyberMuse Column</a></li>
+    <li><a href="resources.html" class="current">Resources</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Context &amp; Community</div>
+  <h1>Resources</h1>
+  <div class="hero-sub">MP3.com archival efforts · platform history · where the work is being preserved</div>
+</div>
+
+<div class="main-wrap">
+
+  <h2 class="section-h">MP3.com Archival Community</h2>
+  <p class="section-intro">Other people and projects preserving what's left of the MP3.com platform. These efforts focus on the platform overall; this archive focuses on Women of MP3.com specifically.</p>
+
+  <div class="resource-card">
+    <h3>MP3.com Rescue Barge — dotcomboom</h3>
+    <span class="res-url"><a href="https://blog.somnolescent.net/2025/09/mp3-com-rescue-barge-barge/" target="_blank" rel="noopener">blog.somnolescent.net/2025/09/mp3-com-rescue-barge-barge/</a></span>
+    <p>A large-scale community effort to rescue and preserve MP3.com content from the Wayback Machine and other sources. The Rescue Barge project has been systematically working through archived snapshots to recover artist pages, music files, and platform history.</p>
+  </div>
+
+  <div class="resource-card">
+    <h3>MP3.com Rescue Barge — Archive.org Collection</h3>
+    <span class="res-url"><a href="https://archive.org/details/mp3-com-rescue-barge-Z" target="_blank" rel="noopener">archive.org/details/mp3-com-rescue-barge-Z</a></span>
+    <p>The Rescue Barge team's uploads to the Internet Archive, organized alphabetically (A through Z collections). The most comprehensive single collection of preserved MP3.com content currently available to the public.</p>
+  </div>
+
+  <div class="resource-card">
+    <h3>Wayback Machine — MP3.com</h3>
+    <span class="res-url"><a href="https://web.archive.org/web/*/mp3.com" target="_blank" rel="noopener">web.archive.org/web/*/mp3.com</a></span>
+    <p>The Internet Archive's snapshots of MP3.com going back to the late 1990s. The primary source for recovering any surviving content from the platform, including WoMP3 newsletter issues. Snapshots are inconsistent — not all pages were captured, and many links within saved pages point to other pages that weren't saved.</p>
+  </div>
+
+  <h2 class="section-h" style="margin-top:3rem;">About MP3.com</h2>
+  <p class="section-intro">Context for why this archive matters — the platform WoMP3 lived on, and the legal battles that shaped digital music history.</p>
+
+  <div class="history-block">
+
+    <span class="era-label">Origins and Rise · 1997–1999</span>
+    <h3>An Independent Music Revolution</h3>
+    <p>MP3.com was launched in 1997 by entrepreneur Michael Robertson. Originally, it began as a simple resource and informational site tracking MP3 technology, encoders, and early hardware players. The site quickly pivoted into a massive web hosting and distribution platform for independent and unsigned artists. Long before Myspace, SoundCloud, or Spotify, MP3.com allowed anyone to upload their music for free.</p>
+    <p>Artists received artist pages, detailed download statistics, and a global audience. For music fans, it was a goldmine of legal, free, downloadable MP3 tracks across every imaginable niche genre, making it one of the most heavily trafficked sites on the web. In July 1999, MP3.com went public with one of the most explosive IPOs of the dot-com era, briefly driving the company's market value into the billions.</p>
+
+    <span class="era-label">The Landmark Legal Battle · 2000</span>
+    <h3>UMG v. MP3.com</h3>
+    <p>While indie artists loved MP3.com, major record labels viewed the platform with extreme hostility. The friction peaked with the launch of "My.MP3.com" in early 2000 — a service that allowed users to listen to CDs they owned from any computer, by verifying ownership and streaming from MP3.com's central servers.</p>
+    <p>Major record labels (led by Universal Music Group) sued MP3.com for massive copyright infringement, arguing that MP3.com had illegally built a centralized database containing thousands of commercially released albums without authorization. The court ruled severely against MP3.com, calling its actions "wholesale copying of copyrighted material to make commercial profits." Judge Jed Rakoff imposed staggering statutory damages — totaling $53.4 million to Universal alone, with pending settlements from other major labels. This crippling legal liability forced the company to settle out of court, severely wounding its finances.</p>
+
+    <span class="era-label">Acquisition and Decline · 2001–2003</span>
+    <h3>Vivendi, CNET, and Shutdown</h3>
+    <p>To survive the crushing debt from the lawsuits, MP3.com was acquired in August 2001 by media conglomerate Vivendi Universal — which conveniently owned the label that had sued them. Under Vivendi, the site was heavily corporate-vetted and lost much of its rebellious, grass-roots independent identity.</p>
+    <p>As the dot-com bubble burst and Vivendi downsized, CNET Networks bought the MP3.com domain name and select assets in 2003. CNET officially shut down the original music-sharing service on December 2, 2003, transforming the domain into an editorial tech-news and music-review blog.</p>
+
+    <span class="era-label">Legacy</span>
+    <h3>What MP3.com Made Possible</h3>
+    <ul>
+      <li>It proved that consumers hungered for digital, downloadable music delivery long before Apple launched the iTunes Store.</li>
+      <li>It paved the way for democratized music distribution, showing that independent artists could bypass traditional record label gatekeepers to reach a global fanbase.</li>
+      <li>Alongside peer-to-peer services like Napster, MP3.com sat at ground zero of the legal and cultural wars that forced the multi-billion-dollar music industry to drag itself into the digital age.</li>
+      <li>Channels like Women of MP3.com demonstrated that niche editorial programming could build dedicated communities on the platform — well before the era of social media influencers or genre-specific streaming playlists.</li>
+    </ul>
+
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <a href="index.html">Women of MP3.com Archive</a> &nbsp;·&nbsp; Resources &amp; Context &nbsp;·&nbsp; Partial Recovery<br>
+  <a href="cybermuse.html">CyberMuse / i-Muse Column →</a>
+</footer>
+
+</body>
+</html>

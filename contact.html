@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Women of MP3.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orchid: #6B3FA0;
+    --orchid-dark: #4a2b72;
+    --orchid-light: #9b6dd1;
+    --lavender: #e8e2f5;
+    --lavender-mid: #c9bde8;
+    --cream: #faf8f4;
+    --ink: #1a1a2e;
+    --muted: #5c5c7a;
+    --warm-white: #f5f2ec;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  /* ── NAV ── */
+  .site-nav {
+    background: var(--orchid-dark);
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .site-nav .nav-brand {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--lavender-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+  .site-nav .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin-left: auto;
+  }
+  .site-nav .nav-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--lavender);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+  .site-nav .nav-links a:hover { opacity: 1; }
+  .site-nav .nav-links a.current { color: #fff; opacity: 1; border-bottom: 1px solid var(--orchid-light); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--orchid-dark) 0%, var(--orchid) 60%, var(--orchid-light) 100%);
+    color: white;
+    padding: 3.5rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.025) 2px,
+      rgba(255,255,255,0.025) 4px
+    );
+  }
+  .hero-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lavender-mid);
+    margin-bottom: 0.75rem;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+    position: relative;
+  }
+  .hero .hero-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.65);
+    margin-top: 0.75rem;
+    position: relative;
+  }
+
+  /* ── LAYOUT ── */
+  .main-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  /* ── INTRO TEXT ── */
+  .contact-intro {
+    margin-bottom: 2.5rem;
+  }
+  .contact-intro h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--orchid-dark);
+    margin-bottom: 1rem;
+  }
+  .contact-intro p {
+    font-size: 1rem;
+    margin-bottom: 0.9rem;
+    color: var(--ink);
+  }
+  .contact-intro ul {
+    margin: 0.75rem 0 0.75rem 1.25rem;
+  }
+  .contact-intro ul li {
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+
+  /* ── FORM EMBED AREA ── */
+  .form-wrap {
+    background: white;
+    border: 1px solid var(--lavender-mid);
+    border-top: 4px solid var(--orchid);
+    padding: 0;
+    overflow: hidden;
+  }
+  .form-wrap .form-header {
+    background: var(--lavender);
+    padding: 1rem 1.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orchid-dark);
+  }
+
+  /* Google Form iframe fills this */
+  .form-wrap iframe {
+    width: 100%;
+    border: none;
+    display: block;
+    min-height: 700px;
+  }
+
+  /* Placeholder shown until iframe src is added */
+  .form-placeholder {
+    padding: 3rem 2rem;
+    text-align: center;
+    background: var(--warm-white);
+  }
+  .form-placeholder p {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .form-placeholder .placeholder-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+    opacity: 0.4;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--orchid-dark);
+    color: var(--lavender-mid);
+    text-align: center;
+    padding: 2rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+  }
+  .site-footer a {
+    color: var(--lavender);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Women of MP3.com</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Archive</a></li>
+    <li><a href="cybermuse.html">CyberMuse Column</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html" class="current">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Women of MP3.com Archive</div>
+  <h1>Get in Touch</h1>
+  <div class="hero-sub">Share artifacts · ask questions · connect with the archive team</div>
+</div>
+
+<div class="main-wrap">
+
+  <div class="contact-intro">
+    <h2>Help Us Fill the Gaps</h2>
+    <p>This archive is a partial recovery. If you were part of Women of MP3.com — as a reader, artist, writer, or someone who worked on the platform — we'd love to hear from you.</p>
+    <p>We're especially looking for:</p>
+    <ul>
+      <li>Saved newsletter issues or pages from WoMP3</li>
+      <li>Screenshots, downloads, or files from the original channel</li>
+      <li>CyberMuse / i-Muse column issues not represented here</li>
+      <li>Artist pages or features that ran on WoMP3</li>
+      <li>Memories, context, or stories from the era</li>
+      <li>Any contact with Sephora-era sponsorship materials</li>
+    </ul>
+    <p>Use the form below to reach the archive team. First drafts are welcome — no need for it to be polished.</p>
+  </div>
+
+  <div class="form-wrap">
+    <div class="form-header">Contact Form</div>
+
+    <!--
+      REPLACE THIS PLACEHOLDER with your Google Form embed:
+      1. Open your Google Form
+      2. Click Send → Embed ( </> icon )
+      3. Copy the <iframe> tag
+      4. Delete the .form-placeholder div below
+      5. Paste the <iframe> here, inside .form-wrap (after the .form-header div)
+    -->
+
+    <div class="form-placeholder">
+      <span class="placeholder-icon">✉</span>
+      <p>Google Form embed goes here.<br>
+      Replace this placeholder with your &lt;iframe&gt; from Google Forms → Send → Embed.</p>
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <a href="index.html">Women of MP3.com Archive</a> &nbsp;·&nbsp; Partial Recovery &nbsp;·&nbsp; In Progress<br>
+  Original channel: Oct 1999 – 2003 &nbsp;·&nbsp; Sponsored by Sephora
+</footer>
+
+</body>
+</html>
