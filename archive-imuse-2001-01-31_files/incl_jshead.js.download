@@ -1,0 +1,254 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+<!--
+
+var PromoWindow;
+var CTCcookieget='';
+var d2dwin;
+var d2dstring = '';  
+var isNav;
+var isIE;
+var isWin;
+var playurl = getplayurl();
+
+//Find browser brand
+if (navigator.appName == "Netscape") { isNav = true }
+else { isIE = true; }
+if (navigator.platform == "Win32") { isWin = true; }
+
+
+
+
+if (playurl) {
+  document.write('<META http-equiv="refresh" CONTENT="0; URL=' + playurl +'">');
+  //location.href=playurl;
+}
+
+function getplayurl() {
+  getCookie('MP3SONG','song_url');
+  if (window.CTCcookieget) {
+    var cookieplay = window.CTCcookieget;
+    var hostarray = new Array();
+    hostarray = window.location.hostname.split(".");
+    for (var i = 0; i < hostarray.length; i++) {
+      if (hostarray[i] == 'com')
+        var domainvar = hostarray[i-1];
+    }
+    var playurl = 'https://web.archive.org/web/20031129185301/http://play.mp3.com/cgi-bin/play/play.cgi?orig_url=' + cookieplay;
+    document.cookie = "MP3SONG=; path=/; domain=." + domainvar + ".com; expires=Fri, 13-Aug-1971 00:00:00 GMT";
+    return playurl;
+  }
+  else {
+    return false;
+ }
+}
+
+
+function playcheck(theURL,norefer,destURL) {
+  if (norefer == 2) {
+     var newurl = theURL + '?refer=' + destURL;
+     location.href=newurl; 
+  }
+  else {
+     var referring = refurl();
+     var modurl = theURL + '?refer=' + referring + '&js=1&brwsk=ie.m3u';
+     location.href = modurl;
+  }
+  return false;
+}
+
+
+
+
+function popd2d(songid) {
+
+  if ((d2dwin) && (!d2dwin.closed)) {
+    var queryurl = "https://web.archive.org/web/20031129185301/http://my.mp3.com/music?cmd=show,tr-" + songid + ",xf-t2d,yt-t2d_top";
+    if (d2dwin.topframe) { 
+      d2dwin.topframe.location.href = queryurl; 
+    }
+    return false
+  }
+  else {
+    d2dwin = window.open('https://web.archive.org/web/20031129185301/http://my.mp3.com/music?cmd=show,tr-' + songid + ',xf-t2d,yt-pop_d2d','d2d','width=468,height=490');
+    return false
+  }
+
+}
+
+function closewindows() {
+  if (d2dwin) {
+    d2dwin.close();
+    return true;
+  }
+  else {
+    return true;
+  }
+}
+   
+        
+function closewin() {
+  top.window.close();
+  return true 
+}
+
+
+function promopop(promoname,promourl) {
+  var showpopup;
+
+  getCookie('MP3NOPOPUP','nopopup');
+
+  if (window.CTCcookieget) {
+    showpopup = window.CTCcookieget;  
+  }
+
+  var promoframes = "<html><head><title>" + promoname + "</title></head>\n";
+  promoframes += "<frameset rows=\"250,*\" border=0 frameborder=0 borderwidth=0 borderheight=0>";
+  promoframes += "<frame name=\"promo_top\" scrolling=no src=\"" + promourl + "\">";
+  promoframes += "<frame name=\"close\" scrolling=no src=\"http://www.mp3.com/promos/home_popup/closewin.html\">";
+  promoframes += "</frameset>\n</html>";
+
+  if (showpopup != "no") {
+    PromoWindow = window.open('','promopopup','width=300,height=300');
+    PromoWindow.document.write(promoframes);
+    PromoWindow.document.close();
+    PromoWindow.focus();
+  }
+  return true
+
+}
+
+
+function popuplink(theURL) {
+  top.window.opener.location.href = theURL;
+  top.window.close();
+  return false 
+}
+
+
+function setCookie(name, value, days) {
+  millisecs = 1000 * 60 * 60 * 24 * eval(days)
+  expire = new Date();
+  expire.setTime (expire.getTime() + millisecs);
+  document.cookie = name + "=" + escape(value) +  "; expires=" + expire.toGMTString() + "; path=/; domain=.mp3.com"
+}
+
+
+function getCookie(Name,newVar) {
+  var search = Name + "=";
+  if (document.cookie.length > 0) { // if there are any cookies
+    offset = document.cookie.indexOf(search)
+    if (offset != -1) { // if cookie exists
+      offset += search.length
+      // set index of beginning of value
+      end = document.cookie.indexOf(";", offset)
+      // set index of end of cookie value
+      if (end == -1)
+        end = document.cookie.length;
+      CTCcookieget=eval(newVar+" = unescape(document.cookie.substring(offset, end))");
+    }
+  }
+}
+
+
+function refurl() {
+  var currenturl = location.href;
+  var modurl = escape(currenturl);
+  return modurl;
+}
+
+
+//old checkMimetype function for backward compatibility
+function checkMimetype(mimetype,theURL,norefer,destURL) {
+  if (norefer == 1) {
+    location.href=theURL;
+  }
+  playcheck(theURL,norefer,destURL);
+
+}
+
+
+
+//download pop-up functions
+function checkStreamPopup(mimetype, theURL , song_id, FromURL) {
+        var folder = Math.floor(song_id/1000);
+        if (!isPAS) {
+                var folder = Math.floor(song_id/1000);
+                var popURL = "https://web.archive.org/web/20031129185301/http://artists.mp3s.com/song_download/" + folder + "/" + song_id + ".html?URL=" + FromURL;  
+                var remote = window.open(popURL ,'dl_popup' , 'width=275,height=500,location=no,toolbar=no,status=no,menubar=no,scrollbars=no,resizable=yes');
+                remote.focus();
+                var millisecs = 1000 * 60 * 60 * 24 * 1;
+                var expire = new Date();
+                expire.setTime (expire.getTime() + millisecs);
+                document.cookie = "dl_popup=" + escape(popURL) +  "; expires=" + expire.toGMTString() + "; path=/;";
+	}
+                checkMimetype(mimetype, theURL);
+}
+
+function checkDownloadPopup(url , song_id, FromURL) {
+	var folder = Math.floor(song_id/1000);
+	if (!isPAS) {
+		var folder = Math.floor(song_id/1000);
+                var popURL = "https://web.archive.org/web/20031129185301/http://artists.mp3s.com/song_download/" + folder + "/" + song_id + ".html?URL=" + FromURL;
+		var remote = window.open(popURL ,'dl_popup' , 'width=275,height=500,location=no,toolbar=no,status=no,menubar=no,scrollbars=no,resizable=yes');
+		remote.focus();
+		var millisecs = 1000 * 60 * 60 * 24 * 1;
+		var expire = new Date();
+		expire.setTime (expire.getTime() + millisecs);
+		document.cookie = "dl_popup=" + escape(popURL) +  "; expires=" + expire.toGMTString() + "; path=/;";
+	}
+}
+
+function doDownloadCheck() {
+	var search = "dl_popup=";
+	var popURL;
+	if (document.cookie.length > 0) {
+		var offset = document.cookie.indexOf(search);
+		if (offset != -1) {
+			offset += search.length;
+			end = document.cookie.indexOf(";", offset);
+			if (end == -1) {
+				end = document.cookie.length;
+			}
+		popURL = unescape(document.cookie.substring(offset, end));
+		}
+	}
+
+	if (popURL) {
+		var remote = window.open(popURL , 'dl_popup' , 'width=275,height=500,location=no,toolbar=no,status=no,menubar=no,scrollbars=no,resizable=yes');
+		remote.focus();
+	}
+	var millisecs = 1000 * 60 * 60 * 24 * -1;
+	var expire = new Date();
+	expire.setTime (expire.getTime() + millisecs);
+	document.cookie = "dl_popup=; expires=Fri, 13-Aug-1971 00:00:00 GMT; path=/;";
+}
+
+
+function popUpLo(playUrl,link,img,h,w,ttl,scroll) {
+	OpenWindow=window.open("", "newwin", "height=" + h + ",width=" + w + ",top=0,left=0,toolbar=no,scrollbars=" + scroll + ",menubar=no");
+	OpenWindow.document.write("<html><head>");
+	OpenWindow.document.write("<title>" + ttl + "</title>");
+	OpenWindow.document.write("</head><body bgcolor=#FFFFFF leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>");
+	OpenWindow.document.write("<center>");
+	OpenWindow.document.write("<a href='"+ link + "' target='_new'><img src='" + img + "' width='" + w + "' height='" + h + "' border='0'></a>");
+	OpenWindow.document.write("</center>");
+	OpenWindow.document.write("</body>");
+	OpenWindow.document.write("</html>");
+	self.name="content";
+	location.href = playUrl;
+}
+
+
+//-->
+
+
+
+}

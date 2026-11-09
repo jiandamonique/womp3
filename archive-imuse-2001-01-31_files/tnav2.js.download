@@ -1,0 +1,178 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+//Menu object creation
+oCMenu=new makeCM("oCMenu") //Making the menu object. Argument: menuname
+
+//Menu properties   
+oCMenu.pxBetween=0
+//Using the cm_page object to place the menu ----
+oCMenu.fromLeft=0
+oCMenu.fromTop=0
+oCMenu.rows=1
+oCMenu.menuPlacement=0
+
+oCMenu.resizeCheck=1 
+oCMenu.wait=1000 
+oCMenu.fillImg="https://web.archive.org/web/20031129185258/http://images.mp3.com/mp3s/images/ui/menu_fill.gif"
+oCMenu.zIndex=0
+
+//Background bar properties
+oCMenu.useBar=0
+
+//Level properties - ALL properties have to be spesified in level 0
+oCMenu.level[0]=new cm_makeLevel() //Add this for each new level
+oCMenu.level[0].height=20 
+oCMenu.level[0].regClass="clLevel0"
+oCMenu.level[0].overClass="clLevel0over"
+oCMenu.level[0].borderX=1
+oCMenu.level[0].borderY=1
+oCMenu.level[0].borderClass="clLevel0border"
+oCMenu.level[0].offsetX=0
+oCMenu.level[0].offsetY=0
+oCMenu.level[0].rows=0
+oCMenu.level[0].arrow=0
+oCMenu.level[0].arrowWidth=0
+oCMenu.level[0].arrowHeight=0
+oCMenu.level[0].align="bottom"
+
+oCMenu.level[1]=new cm_makeLevel() //Add this for each new level
+oCMenu.level[1].overClass="clLevel1over"
+oCMenu.level[1].regClass="clLevel1"
+oCMenu.level[1].width=125
+oCMenu.level[1].height=15
+
+
+
+/******************************************
+Menu item creation:
+myCoolMenu.makeMenu(name, parent_name, text, link, target, width, height, regImage, overImage, regClass, overClass , align, rows, nolink, onclick, onmouseover, onmouseout) 
+*************************************/
+oCMenu.makeMenu('m0','','Listen','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_listen/u_genres.mp3.com/music/','',48);
+oCMenu.makeMenu('m1','','Download','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_download/u_genres.mp3.com/download_charts/','',72);
+oCMenu.makeMenu('m2','','Interact','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_Interact_main_Interact_page/u_www.mp3.com/interactivezone','',56);
+oCMenu.makeMenu('m3','','Watch','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_watch_main_RShome/u_www.rollingstone.com','_blank',50);
+oCMenu.makeMenu('m4','','Shop','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_buystuff/u_store.mp3.com/store/','',43);
+oCMenu.makeMenu('m5','','Software','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_software/u_software.mp3.com/','',62);
+oCMenu.makeMenu('m6','','Hardware','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_hardware/u_hardware.mp3.com/','',67);
+
+oCMenu.makeMenu('m0sub1','m0','Top 40','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_listen_Top40/u_genres.mp3.com/music/');
+oCMenu.makeMenu('m0sub2','m0','Alternative','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_listen_alternative/u_genres.mp3.com/music/alternative/');
+oCMenu.makeMenu('m0sub3','m0','Classical','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_listen_classical/u_genres.mp3.com/music/classical/');
+oCMenu.makeMenu('m0sub4','m0','Country','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_listen_country/u_genres.mp3.com/music/country/');
+oCMenu.makeMenu('m0sub5','m0','Electronic','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_listen_electronic/u_genres.mp3.com/music/electronic/');
+oCMenu.makeMenu('m0sub6','m0','Hip Hop/Rap','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_listen_hiphop/u_genres.mp3.com/music/hip_hop_rap/');
+oCMenu.makeMenu('m0sub7','m0','Metal','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_listen_metal/u_genres.mp3.com/music/metal/');
+oCMenu.makeMenu('m0sub8','m0','Pop & Rock','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_listen_poprock/u_genres.mp3.com/music/pop_rock/');
+oCMenu.makeMenu('m0sub9','m0','More Genres','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_listen_allgenrespage/u_www.mp3.com/listen_charts/');
+oCMenu.makeMenu('m0sub10','m0','MP3.com Radio','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_listen_mp3radio/u_www.radiofreevirgin.com/partners/mp3/','_blank');
+
+oCMenu.makeMenu('m1sub1','m1','Top 40','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_download_Top40/u_genres.mp3.com/download_charts/');
+oCMenu.makeMenu('m1sub2','m1','Alternative','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_download_alternative/u_genres.mp3.com/download_charts/alternative/');
+oCMenu.makeMenu('m1sub3','m1','Classical','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_download_classical/u_genres.mp3.com/download_charts/classical/');
+oCMenu.makeMenu('m1sub4','m1','Country','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_download_country/u_genres.mp3.com/download_charts/country/');
+oCMenu.makeMenu('m1sub5','m1','Electronic','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_download_electronic/u_genres.mp3.com/download_charts/electronic/');
+oCMenu.makeMenu('m1sub6','m1','Hip Hop/Rap','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_download_hiphop/u_genres.mp3.com/download_charts/hip_hop_rap/');
+oCMenu.makeMenu('m1sub7','m1','Metal','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_download_metal/u_genres.mp3.com/download_charts/metal/');
+oCMenu.makeMenu('m1sub8','m1','Pop & Rock','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_download_poprock/u_genres.mp3.com/download_charts/pop_rock/');
+oCMenu.makeMenu('m1sub9','m1','More Genres','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_download_allgenrespage/u_www.mp3.com/download_charts/');
+oCMenu.makeMenu('m1sub10','m1','Full Albums','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_download_emusic/u_www.emusic.com/promo/mp3com/index.html?fref=148767','_blank');
+
+oCMenu.makeMenu('m2sub1','m2','My Home','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_interact_myhome/u_www.mp3.com/myhome');
+oCMenu.makeMenu('m2sub2','m2','Greeting Cards','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_interact_greetings/u_musicgreetings.mp3.com/createcard/index.html');
+oCMenu.makeMenu('m2sub3','m2','Stations','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_interact_stations/u_stations.mp3s.com/stations/');
+oCMenu.makeMenu('m2sub4','m2','MP3.com Messenger','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_interact_instant_messenger/u_www.meca.com/custreg/mp3/jump/mp3_jump.htm');
+oCMenu.makeMenu('m2sub5','m2','EZ-DJ','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_interact_ezdj/u_www.mp3.com/ezdj');
+oCMenu.makeMenu('m2sub6','m2','Play Games','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_interact_wildtan/u_www.wildtangent.com/ddc/mp3com/','_blank');
+//oCMenu.makeMenu('m2sub7','m2','Meet Singles','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_lava_navbar/u_www.mp3.com/promos/lavalife/mp3.html');
+oCMenu.makeMenu('m2sub7','m2',"Song Messenger",'https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_interact_messenger/u_my.mp3.com/songrec');
+//oCMenu.makeMenu('m2sub9','m2','Messageboards','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_interact_message/u_msg.mp3.com/msg/');
+
+oCMenu.makeMenu('m3sub1','m3','Music Videos','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_watch_musicvid_RShome/u_www.rollingstone.com','_blank');
+oCMenu.makeMenu('m3sub5','m3','Photos','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_watch_photos_RShome/u_www.rollingstone.com','_blank');
+
+oCMenu.makeMenu('m4sub1','m4','CD Store','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_buystuff_cdstore/u_store.mp3.com/store/');
+oCMenu.makeMenu('m4sub2','m4','Hot Pick CDs','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_buystuff_hotcd/u_store.mp3.com/store/damcds/');
+oCMenu.makeMenu('m4sub3','m4','Download Albums','https://web.archive.org/web/20031129185258/http://click.mp3.com/ct/f_mp3_hp_topnav_shop_emusic/u_www.emusic.com/promo/mp3com/index.html?fref=148804','_blank');
+
+
+oCMenu.construct()
+
+
+//Extra code to find position:
+function findPos(num){
+  //alert(num)
+  if(bw.ns4){   //Netscape 4
+    x = document.layers["layerMenu"+num].pageX
+    y = document.layers["layerMenu"+num].pageY
+  }else{ //other browsers
+    x=0; y=0; var el,temp
+    el = bw.ie4?document.all["divMenu"+num]:document.getElementById("divMenu"+num);
+    if(el.offsetParent){
+      temp = el
+      while(temp.offsetParent){ //Looping parent elements to get the offset of them as well
+        temp=temp.offsetParent; 
+        x+=temp.offsetLeft
+        y+=temp.offsetTop;
+      }
+    }
+    x+=el.offsetLeft
+    y+=el.offsetTop
+  }
+  //Returning the x and y as an array
+  return [x,y]
+}
+function placeElements(){
+  //Changing the position of ALL top items:
+  pos = findPos(0)
+  oCMenu.m["m0"].b.moveIt(pos[0],pos[1])
+  pos = findPos(1)
+  oCMenu.m["m1"].b.moveIt(pos[0],pos[1])
+  pos = findPos(2)
+  oCMenu.m["m2"].b.moveIt(pos[0],pos[1])
+  pos = findPos(3)
+  oCMenu.m["m3"].b.moveIt(pos[0],pos[1])
+  pos = findPos(4)
+  oCMenu.m["m4"].b.moveIt(pos[0],pos[1])
+  pos = findPos(5)
+  oCMenu.m["m5"].b.moveIt(pos[0],pos[1])
+  pos = findPos(6)
+  oCMenu.m["m6"].b.moveIt(pos[0],pos[1])
+
+ 
+  //Setting the fromtop value
+  oCMenu.fromTop = pos[1]
+}
+placeElements()
+
+
+/**Add-in that fixes PC bug where menus go behind select boxes**/
+if(bw.dom&&!bw.op5&&!bw.op6){
+  makeCM.prototype.sel=0
+  makeCM.prototype.onshow+=";this.hideselectboxes(pm,pm.subx,pm.suby,maxw,maxh,pm.lev)"
+  makeCM.prototype.hideselectboxes=function(pm,x,y,w,h,l){
+    var selx,sely,selw,selh,i
+    if(!this.sel){
+      this.sel=document.getElementsByTagName("SELECT")
+		  this.sel.level=0
+    }
+    var sel=this.sel
+    for(i=0;i<sel.length;i++){
+			selx=0; sely=0; var selp;
+			if(sel[i].offsetParent){selp=sel[i]; while(selp.offsetParent){selp=selp.offsetParent; selx+=selp.offsetLeft; sely+=selp.offsetTop;}}
+			selx+=sel[i].offsetLeft; sely+=sel[i].offsetTop
+			selw=sel[i].offsetWidth; selh=sel[i].offsetHeight
+			if(selx+selw>x && selx<x+w && sely+selh>y && sely<y+h){
+				if(sel[i].style.visibility!="hidden"){sel[i].level=l; sel[i].style.visibility="hidden"; if(pm){ if(!pm.mout) pm.mout=""; pm.mout+=this.name+".sel["+i+"].style.visibility='visible';"}}
+      }else if(l<=sel[i].level && !(pm&&l==0)) sel[i].style.visibility="visible"
+    }
+  }
+}
+
+}

@@ -1,0 +1,41 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+function redirect(pulldown) {
+	newlocation = pulldown[pulldown.selectedIndex].value;
+	if (newlocation != "")
+	self.location = newlocation;
+}
+function blankWin(pulldown,winName) {
+	newlocation = pulldown[pulldown.selectedIndex].value;
+	if (newlocation != "")
+	window.open(newlocation,winName,"location=yes,toolbar=yes,status=yes,menubar=yes,resizable=yes,scrollbars=yes,status=yes");
+}
+function resetIfBlank(pulldown) {
+	possiblenewlocation = pulldown[pulldown.selectedIndex].value;
+	if (possiblenewlocation == "")
+	pulldown.selectedIndex = 0; // reset to start since no movement
+}
+}
+
+/*
+     FILE ARCHIVED ON 18:52:59 Nov 29, 2003 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:44:12 Nov 09, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.375
+  load_resource: 138.905
+  PetaboxLoader3.resolve: 109.61
+  PetaboxLoader3.datanode: 28.852
+*/

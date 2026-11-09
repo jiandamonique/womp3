@@ -1,0 +1,174 @@
+body {padding:0px;margin:0px;}
+body, div, td, ul, li {font-family:arial,helvetica,sans-serif;font-size:12px;}
+
+.icn, .icn a {font-size:9px;}
+
+
+
+/* forms */
+form {margin: 0px}
+.btn {color:#fff;background-color:#666;font-size:10px;font-family:arial,helvetica,sans-serif;padding:2px;}
+.buy {font-weight:bold;color:#000;background-color:#fc0;font-size:12px;font-family:arial,helvetica,sans-serif;padding:1px;}
+.signup {font-weight:bold;color:#000;background-color:#fc0;font-size:14px;font-family:arial,helvetica,sans-serif;padding:4px;}
+.slct, select, option {font-size:10px;font-family:arial,helvetica,sans-serif;}
+.req {color:#f60;font-size:10px;}
+.reqmark {color:#f60;font-size:13px;font-weight:bold;}
+.error {color:#f30;}
+.searchbtn {color:#fff;background-color:#666;font-size:10px;font-family:arial,helvetica,sans-serif;padding:1px;}
+
+
+
+/* spacing */
+.sp1 {font-size:1px;}
+.sp2 {font-size:2px;}
+.sp3 {font-size:3px;}
+.sp4 {font-size:4px;}
+.sp5 {font-size:5px;}
+.lnbr {font-size:8px;background-image:url("https://web.archive.org/web/20031129185258im_/http://images.mp3.com/mp3s/images/ui/misc/lnbr.gif");background-repeat:repeat-x;}
+
+
+
+/* text */
+.txt {font-family:arial,helvetica,sans-serif;font-size:12px;}
+
+.ttl, .ttl td {font-size:14px;font-weight:bold;}
+.med, .med td {font-size:11px;}
+.small, .small td {font-size:10px;}
+.xsmall, .xsmall td {font-size:9px;}
+
+.smallnoline {font-size:10px;text-decoration:none;}
+.smallnoline:hover {text-decoration:underline;}
+.smallnoline a {text-decoration:none;}
+.smallnoline a:hover {text-decoration:underline;}
+
+.mednoline {font-size:11px;text-decoration:none;}
+.mednoline:hover {text-decoration:underline;}
+.mednoline a {text-decoration:none;}
+.mednoline a:hover {text-decoration:underline;}
+
+.textnoline {font-size:12px;text-decoration:none;}
+.textnoline:hover {text-decoration:underline;}
+.textnoline a {text-decoration:none;}
+.textnoline a:hover {text-decoration:underline;}
+
+.ttlnoline {font-size:10px;text-decoration:none;}
+.ttlnoline:hover {text-decoration:underline;}
+.ttlnoline a {text-decoration:none;}
+.ttlnoline a:hover {text-decoration:underline;}
+
+.wht, .wht a {color:#fff;}
+.blk, .blk a {color:#000;}
+
+.forced {color:#000;}
+.forced a {color:#00f;}
+
+.today {font-weight:bold;}
+.yesterday {color:#999;}
+
+
+.ttlbarttl, .ttlbarttl a {font-size:16px;font-weight:bold;color:#000;background-color:#fc0;}
+.ttlbarttl a:hover {color:#f30;}
+
+.ttlbartxt, .ttlbartxt a {font-size:12px;color:#000;background-color:#fc0;}
+.ttlbartxt a:hover {color:#f30;}
+
+.ttlbarsmall, .ttlbarsmall a {font-size:10px;color:#000;background-color:#fc0;}
+.ttlbarsmall a:hover {color:#f30;}
+
+.nav {font-size:11px;color:#666;background-color:#333;}
+.nav2 {font-size:12px;color:#666;background-color:#333;}
+.navoff {color:#fc0;}
+.navoff:hover {color:#ff9;}
+.navon {color:#fff;text-decoration:none;font-weight:bold;}
+.navon:hover {color:#fff;text-decoration:none;}
+
+
+
+
+/* genre list stuff */
+table.glist {border-top:solid 1px #fc0; border-left:solid 1px #fc0; background-color:#fff;}
+.glist td {border-right:solid 1px #fc0; border-bottom:solid 1px #fc0; padding:3px; text-align:left; background-image:none;}
+.glist a {text-decoration:none;}
+.glist a:hover {text-decoration:underline;}
+
+.glist td.page {font-size:11px;background:#ffe066;text-align:right;}
+.glist td.page a {font-weight:bold;color:#000;text-decoration:underline;}
+.glist td.page a:hover {color:#f90;}
+
+.glist td.icn {text-align:center;}
+
+.glist td.today, .glist td.yesterday {text-align:center;}
+
+.glist .auction {background:#ff9;}
+.glist .auction div.arrow {float:left;width:10%;text-align:center;}
+.glist .auction div.text {float:right;width:90%;}
+
+
+
+
+
+
+/* BEGIN ddmenu.js styles */
+
+/* default styles for ddmenu.js -- DO NOT EDIT */
+.clCMEvent {position:absolute;width:99%;height:99%;clip:rect(0,100%,100%,0);left:0;top:0;visibility:visible;}
+.clCMAbs {position:absolute;visibility:hidden;left:0;top:0}
+
+/* top nav - level 0 */
+.clLevel0,.clLevel0over {position:absolute;padding:2px;font-family:arial,helvetica;font-size:12px;text-decoration:underline;}
+.clLevel0 {background-color:#fc0;layer-background-color:#fc0;color:#000;}
+.clLevel0over {background-color:#000;layer-background-color:#000;color:#fff;cursor:pointer;cursor:hand;text-decoration:underline;}
+.clLevel0border {position:absolute;visibility:hidden;background-color:#ff9;layer-background-color:#ff9;}
+
+/* top nav - level 1 */
+.clLevel1,.clLevel1over {position:absolute;padding:2px;font-family:arial,helvetica;font-size:10px;}
+.clLevel1 {background-color:#ff9;layer-background-color:#ff9;color:#000;}
+.clLevel1over {background-color:#fc0;layer-background-color:#fc0;color:#000;cursor:pointer;cursor:hand;}
+.clLevel1border {position:absolute;visibility:hidden;background-color:#fc0;layer-background-color:#fc0;}
+
+/* genre nav - level 0 */
+.midLevel0,.midLevel0over {position:absolute;padding:2px;font-family:arial,helvetica;font-size:9px;text-decoration:underline;z-index:100;}
+.midLevel0 {background-color:#fff;layer-background-color:#fff;color:#000;}
+.midLevel0over {background-color:#000;layer-background-color:#000;color:#fff;cursor:pointer;cursor:hand;}
+.midLevel0border {position:absolute;visibility:hidden;background-color:#fff;layer-background-color:#fff;}
+
+/* genre - level 1 */
+.midLevel1,.midLevel1over {position:absolute;padding:2px;font-family:arial,helvetica;font-size:10px;z-index:100;}
+.midLevel1 {background-color:#ff9;layer-background-color:#ff9;color:#000;}
+.midLevel1over {background-color:#fc0;layer-background-color:#fc0;color:#000;cursor:pointer;cursor:hand;}
+.midLevel1border {position:absolute;visibility:hidden;background-color:#fc0;layer-background-color:#fc0;}
+
+/* END ddmenu.js styles */
+
+
+
+
+
+
+/* old carryovers DO NOT USE ON NEW PAGES */
+.subbarttl {font-size:16px;font-weight:bold;color:#fff;}
+.subbarttl:hover {color:#039;}
+.subbartxt {font-size:12px;color:#fff;}
+.subbartxt:hover {color:#039;}
+.subbarsmall {font-size:10px;color:#fff;}
+.subbarsmall:hover {color:#039;}
+
+.sitearea {font-size:30px;color:#ccc;}
+
+.toplevel {font-size:16px;}
+
+/*
+     FILE ARCHIVED ON 18:52:58 Nov 29, 2003 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:44:10 Nov 09, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.772
+  load_resource: 55.533
+  PetaboxLoader3.resolve: 33.734
+  PetaboxLoader3.datanode: 20.965
+*/
