@@ -221,21 +221,29 @@
 <div class="hero">
   <div class="hero-label">Women of MP3.com Archive</div>
   <svg aria-hidden="true" focusable="false" viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto 1.25rem;width:230px;max-width:100%;opacity:0.9;">
-    <!-- envelope body -->
-    <rect x="55" y="38" width="210" height="62" rx="6" fill="#1a0a2e" stroke="#9b6dd1" stroke-width="1.8"/>
-    <!-- envelope flap (open/sent) -->
-    <path d="M55,38 L160,80 L265,38" fill="none" stroke="#9b6dd1" stroke-width="1.5"/>
-    <path d="M55,38 L160,80 L265,38 L265,32 Q220,10 160,28 Q100,10 55,32 Z" fill="#2a1a4a" stroke="#9b6dd1" stroke-width="1.5"/>
-    <!-- signal waves radiating from envelope -->
-    <path d="M140,16 Q160,8 180,16" fill="none" stroke="#c9bde8" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-    <path d="M120,8 Q160,0 200,8" fill="none" stroke="#9b6dd1" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
-    <path d="M100,2 Q160,-6 220,2" fill="none" stroke="#6B3FA0" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
-    <!-- wax seal -->
-    <circle cx="160" cy="68" r="12" fill="#6B3FA0" stroke="#c9bde8" stroke-width="1"/>
+    <defs>
+      <style>
+        @media (prefers-reduced-motion: reduce) { .ct-wave1,.ct-wave2,.ct-wave3,.ct-env,.ct-seal { animation: none !important; } }
+        @keyframes ct-ripple { 0% { opacity:0; transform:scaleX(0.5); } 40% { opacity:0.7; transform:scaleX(1); } 100% { opacity:0; transform:scaleX(1.15); } }
+        @keyframes ct-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+        @keyframes ct-seal-pulse { 0%,100% { r:12; } 50% { r:13.5; } }
+      </style>
+    </defs>
+    <!-- envelope floating gently -->
+    <g class="ct-env" style="animation:ct-float 4s ease-in-out infinite;">
+      <rect x="55" y="38" width="210" height="62" rx="6" fill="#1a0a2e" stroke="#9b6dd1" stroke-width="1.8"/>
+      <path d="M55,38 L160,80 L265,38" fill="none" stroke="#9b6dd1" stroke-width="1.5"/>
+      <path d="M55,38 L160,80 L265,38 L265,32 Q220,10 160,28 Q100,10 55,32 Z" fill="#2a1a4a" stroke="#9b6dd1" stroke-width="1.5"/>
+      <ellipse cx="72" cy="92" rx="6" ry="4" fill="#9b6dd1" opacity="0.4" transform="rotate(-20 72 92)"/>
+      <ellipse cx="248" cy="92" rx="6" ry="4" fill="#9b6dd1" opacity="0.4" transform="rotate(20 248 92)"/>
+    </g>
+    <!-- signal waves rippling outward with staggered delay -->
+    <path class="ct-wave1" d="M140,16 Q160,8 180,16" fill="none" stroke="#c9bde8" stroke-width="1.5" stroke-linecap="round" style="transform-origin:160px 12px;animation:ct-ripple 2.4s ease-out infinite;"/>
+    <path class="ct-wave2" d="M120,8 Q160,0 200,8" fill="none" stroke="#9b6dd1" stroke-width="1.2" stroke-linecap="round" style="transform-origin:160px 4px;animation:ct-ripple 2.4s ease-out 0.5s infinite;"/>
+    <path class="ct-wave3" d="M100,2 Q160,-6 220,2" fill="none" stroke="#6B3FA0" stroke-width="1" stroke-linecap="round" style="transform-origin:160px -2px;animation:ct-ripple 2.4s ease-out 1s infinite;"/>
+    <!-- wax seal — gentle pulse -->
+    <circle class="ct-seal" cx="160" cy="68" r="12" fill="#6B3FA0" stroke="#c9bde8" stroke-width="1" style="animation:ct-seal-pulse 3s ease-in-out infinite;"/>
     <text x="156" y="73" font-size="11" fill="#e8e2f5" font-family="serif" font-weight="bold">W</text>
-    <!-- orchid petal details at corners -->
-    <ellipse cx="72" cy="92" rx="6" ry="4" fill="#9b6dd1" opacity="0.4" transform="rotate(-20 72 92)"/>
-    <ellipse cx="248" cy="92" rx="6" ry="4" fill="#9b6dd1" opacity="0.4" transform="rotate(20 248 92)"/>
   </svg>
   <h1>Get in Touch</h1>
   <div class="hero-sub">Share artifacts · ask questions · connect with the archive team</div>
@@ -244,7 +252,7 @@
 <div class="main-wrap">
 
   <div class="contact-intro">
-    <h2>Help Us Fill the Gaps</h2>
+    <h2>Help Us Fill the Caps</h2>
     <p>This archive is a partial recovery. If you were part of Women of MP3.com — as a reader, artist, writer, or someone who worked on the platform — we'd love to hear from you.</p>
     <p>We're especially looking for:</p>
     <ul>

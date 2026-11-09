@@ -249,28 +249,55 @@
 <div class="hero">
   <div class="hero-label">Context &amp; Community</div>
   <svg aria-hidden="true" focusable="false" viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto 1.25rem;width:230px;max-width:100%;opacity:0.9;">
-    <!-- open book -->
+    <defs>
+      <style>
+        @media (prefers-reduced-motion: reduce) { .rs-reel1,.rs-reel2,.rs-mark,.rs-book { animation: none !important; } }
+        @keyframes rs-spin-cw  { from { transform: rotate(0deg);   } to { transform: rotate(360deg);  } }
+        @keyframes rs-spin-ccw { from { transform: rotate(0deg);   } to { transform: rotate(-360deg); } }
+        @keyframes rs-mark-sway { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(14deg); } }
+        @keyframes rs-cassette-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        @keyframes rs-page-shimmer { 0%,100% { opacity:0.4; } 50% { opacity:0.85; } }
+      </style>
+    </defs>
+    <!-- open book static -->
     <path d="M60,100 L60,30 Q110,22 160,34 Q210,22 260,30 L260,100 Q210,88 160,96 Q110,88 60,100 Z" fill="#1a0a2e" stroke="#9b6dd1" stroke-width="1.5"/>
     <line x1="160" y1="34" x2="160" y2="96" stroke="#9b6dd1" stroke-width="1.5"/>
-    <!-- left page lines -->
-    <line x1="80" y1="52" x2="148" y2="50" stroke="#c9bde8" stroke-width="1" opacity="0.4"/>
-    <line x1="80" y1="62" x2="148" y2="60" stroke="#c9bde8" stroke-width="1" opacity="0.4"/>
-    <line x1="80" y1="72" x2="148" y2="70" stroke="#c9bde8" stroke-width="1" opacity="0.4"/>
-    <line x1="80" y1="82" x2="148" y2="80" stroke="#c9bde8" stroke-width="1" opacity="0.4"/>
-    <!-- right page lines -->
-    <line x1="172" y1="50" x2="240" y2="52" stroke="#c9bde8" stroke-width="1" opacity="0.4"/>
-    <line x1="172" y1="60" x2="240" y2="62" stroke="#c9bde8" stroke-width="1" opacity="0.4"/>
-    <line x1="172" y1="70" x2="240" y2="72" stroke="#c9bde8" stroke-width="1" opacity="0.4"/>
-    <line x1="172" y1="80" x2="240" y2="82" stroke="#c9bde8" stroke-width="1" opacity="0.4"/>
-    <!-- cassette tape on right page -->
+    <!-- page lines shimmer in sequence -->
+    <line x1="80" y1="52" x2="148" y2="50" stroke="#c9bde8" stroke-width="1.2" style="animation:rs-page-shimmer 2.4s ease-in-out 0s infinite;"/>
+    <line x1="80" y1="62" x2="148" y2="60" stroke="#c9bde8" stroke-width="1.2" style="animation:rs-page-shimmer 2.4s ease-in-out 0.3s infinite;"/>
+    <line x1="80" y1="72" x2="148" y2="70" stroke="#c9bde8" stroke-width="1.2" style="animation:rs-page-shimmer 2.4s ease-in-out 0.6s infinite;"/>
+    <line x1="80" y1="82" x2="148" y2="80" stroke="#c9bde8" stroke-width="1.2" style="animation:rs-page-shimmer 2.4s ease-in-out 0.9s infinite;"/>
+    <line x1="172" y1="50" x2="240" y2="52" stroke="#c9bde8" stroke-width="1.2" style="animation:rs-page-shimmer 2.4s ease-in-out 1.2s infinite;"/>
+    <line x1="172" y1="60" x2="240" y2="62" stroke="#c9bde8" stroke-width="1.2" style="animation:rs-page-shimmer 2.4s ease-in-out 1.5s infinite;"/>
+    <line x1="172" y1="70" x2="240" y2="72" stroke="#c9bde8" stroke-width="1.2" style="animation:rs-page-shimmer 2.4s ease-in-out 1.8s infinite;"/>
+    <line x1="172" y1="80" x2="240" y2="82" stroke="#c9bde8" stroke-width="1.2" style="animation:rs-page-shimmer 2.4s ease-in-out 2.1s infinite;"/>
+    <!-- cassette tape — bobbing up and down -->
+    <g style="animation:rs-cassette-bob 3s ease-in-out infinite;">
     <rect x="183" y="43" width="46" height="30" rx="3" fill="#2a1a4a" stroke="#9b6dd1" stroke-width="1.2"/>
-    <circle cx="197" cy="58" r="6" fill="#0d0520" stroke="#c9bde8" stroke-width="1"/>
-    <circle cx="215" cy="58" r="6" fill="#0d0520" stroke="#c9bde8" stroke-width="1"/>
-    <circle cx="197" cy="58" r="2.5" fill="#9b6dd1"/>
-    <circle cx="215" cy="58" r="2.5" fill="#9b6dd1"/>
+    <!-- reel left — spinning CW -->
+    <g class="rs-reel1" style="transform-origin:197px 58px;animation:rs-spin-cw 2.5s linear infinite;">
+      <circle cx="197" cy="58" r="6" fill="#0d0520" stroke="#c9bde8" stroke-width="1"/>
+      <circle cx="197" cy="58" r="2.5" fill="#9b6dd1"/>
+      <line x1="197" y1="52" x2="197" y2="55" stroke="#9b6dd1" stroke-width="1" opacity="0.6"/>
+      <line x1="197" y1="61" x2="197" y2="64" stroke="#9b6dd1" stroke-width="1" opacity="0.6"/>
+      <line x1="191" y1="58" x2="194" y2="58" stroke="#9b6dd1" stroke-width="1" opacity="0.6"/>
+      <line x1="200" y1="58" x2="203" y2="58" stroke="#9b6dd1" stroke-width="1" opacity="0.6"/>
+    </g>
+    <!-- reel right — spinning CCW -->
+    <g class="rs-reel2" style="transform-origin:215px 58px;animation:rs-spin-ccw 2.5s linear infinite;">
+      <circle cx="215" cy="58" r="6" fill="#0d0520" stroke="#c9bde8" stroke-width="1"/>
+      <circle cx="215" cy="58" r="2.5" fill="#9b6dd1"/>
+      <line x1="215" y1="52" x2="215" y2="55" stroke="#9b6dd1" stroke-width="1" opacity="0.6"/>
+      <line x1="215" y1="61" x2="215" y2="64" stroke="#9b6dd1" stroke-width="1" opacity="0.6"/>
+      <line x1="209" y1="58" x2="212" y2="58" stroke="#9b6dd1" stroke-width="1" opacity="0.6"/>
+      <line x1="218" y1="58" x2="221" y2="58" stroke="#9b6dd1" stroke-width="1" opacity="0.6"/>
+    </g>
     <rect x="200" y="55" width="12" height="6" rx="1" fill="#c9bde8" opacity="0.3"/>
-    <!-- bookmark ribbon -->
-    <polygon points="236,30 243,30 243,50 239.5,46 236,50" fill="#9b6dd1" opacity="0.8"/>
+    </g>
+    <!-- bookmark ribbon — sway -->
+    <g class="rs-mark" style="transform-origin:239px 30px;animation:rs-mark-sway 3s ease-in-out infinite;">
+      <polygon points="236,30 243,30 243,50 239.5,46 236,50" fill="#9b6dd1" opacity="0.8"/>
+    </g>
   </svg>
   <h1>Resources</h1>
   <div class="hero-sub">MP3.com archival efforts · platform history · where the work is being preserved</div>

@@ -159,31 +159,43 @@ footer a:hover { text-decoration: underline; }
 
 <header class="page-header">
   <svg aria-hidden="true" focusable="false" viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto 1.25rem;width:230px;max-width:100%;opacity:0.9;">
-    <!-- stack of floppy disks -->
-    <rect x="88" y="72" width="90" height="62" rx="6" fill="#1a0a2e" stroke="#c9bde8" stroke-width="1.5"/>
-    <rect x="80" y="62" width="90" height="62" rx="6" fill="#2a1a4a" stroke="#9b6dd1" stroke-width="1.5"/>
+    <defs>
+      <style>
+        @media (prefers-reduced-motion: reduce) { .ar-flower,.ar-leaf1,.ar-leaf2,.ar-disk1,.ar-disk2 { animation: none !important; } }
+        @keyframes ar-sway { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+        @keyframes ar-leaf-sway1 { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(-5deg); } }
+        @keyframes ar-leaf-sway2 { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(5deg); } }
+        @keyframes ar-disk-shift { 0%,100% { transform: translateX(0); } 50% { transform: translateX(2px); } }
+      </style>
+    </defs>
+    <!-- floppy disk stack — back disks shift slightly -->
+    <rect class="ar-disk2" x="88" y="72" width="90" height="62" rx="6" fill="#1a0a2e" stroke="#c9bde8" stroke-width="1.5" style="transform-origin:133px 103px;animation:ar-disk-shift 5s ease-in-out 0.6s infinite;"/>
+    <rect class="ar-disk1" x="80" y="62" width="90" height="62" rx="6" fill="#2a1a4a" stroke="#9b6dd1" stroke-width="1.5" style="transform-origin:125px 93px;animation:ar-disk-shift 5s ease-in-out 0.3s infinite;"/>
     <rect x="72" y="52" width="90" height="62" rx="6" fill="#1a0a2e" stroke="#9b6dd1" stroke-width="1.8"/>
-    <!-- disk label area on front disk -->
     <rect x="80" y="62" width="66" height="22" rx="3" fill="#2a1a4a" stroke="#6B3FA0" stroke-width="1"/>
-    <!-- disk metal shutter -->
     <rect x="88" y="90" width="30" height="8" rx="2" fill="#c9bde8" opacity="0.4"/>
     <rect x="93" y="90" width="6" height="8" fill="#9b6dd1" opacity="0.5"/>
-    <!-- label text lines -->
     <line x1="84" y1="70" x2="140" y2="70" stroke="#c9bde8" stroke-width="0.8" opacity="0.4"/>
     <line x1="84" y1="76" x2="134" y2="76" stroke="#c9bde8" stroke-width="0.8" opacity="0.3"/>
-    <!-- flower growing through disk stack -->
+    <!-- stem -->
     <line x1="200" y1="130" x2="200" y2="45" stroke="#9b6dd1" stroke-width="2.2" stroke-linecap="round"/>
-    <!-- leaves -->
-    <ellipse cx="192" cy="90" rx="11" ry="6" fill="#6B3FA0" opacity="0.6" transform="rotate(-25 192 90)"/>
-    <ellipse cx="210" cy="75" rx="10" ry="5" fill="#6B3FA0" opacity="0.5" transform="rotate(20 210 75)"/>
-    <!-- orchid flower head -->
-    <ellipse cx="200" cy="38" rx="10" ry="17" fill="#9b6dd1" opacity="0.9" transform="rotate(-5 200 38)"/>
-    <ellipse cx="186" cy="34" rx="9" ry="13" fill="#6B3FA0" opacity="0.85" transform="rotate(-38 186 34)"/>
-    <ellipse cx="214" cy="34" rx="9" ry="13" fill="#6B3FA0" opacity="0.85" transform="rotate(38 214 34)"/>
-    <ellipse cx="179" cy="47" rx="7" ry="11" fill="#c9bde8" opacity="0.65" transform="rotate(-65 179 47)"/>
-    <ellipse cx="221" cy="47" rx="7" ry="11" fill="#c9bde8" opacity="0.65" transform="rotate(65 221 47)"/>
-    <circle cx="200" cy="40" r="4" fill="#e8e2f5" opacity="0.9"/>
-    <circle cx="200" cy="40" r="2" fill="#6B3FA0"/>
+    <!-- leaves — counter-sway -->
+    <g class="ar-leaf1" style="transform-origin:192px 90px;animation:ar-leaf-sway1 3.5s ease-in-out infinite;">
+      <ellipse cx="192" cy="90" rx="11" ry="6" fill="#6B3FA0" opacity="0.6" transform="rotate(-25 192 90)"/>
+    </g>
+    <g class="ar-leaf2" style="transform-origin:210px 75px;animation:ar-leaf-sway2 3.5s ease-in-out 0.5s infinite;">
+      <ellipse cx="210" cy="75" rx="10" ry="5" fill="#6B3FA0" opacity="0.5" transform="rotate(20 210 75)"/>
+    </g>
+    <!-- orchid flower — gentle sway -->
+    <g class="ar-flower" style="transform-origin:200px 60px;animation:ar-sway 4s ease-in-out infinite;">
+      <ellipse cx="200" cy="38" rx="10" ry="17" fill="#9b6dd1" opacity="0.9" transform="rotate(-5 200 38)"/>
+      <ellipse cx="186" cy="34" rx="9" ry="13" fill="#6B3FA0" opacity="0.85" transform="rotate(-38 186 34)"/>
+      <ellipse cx="214" cy="34" rx="9" ry="13" fill="#6B3FA0" opacity="0.85" transform="rotate(38 214 34)"/>
+      <ellipse cx="179" cy="47" rx="7" ry="11" fill="#c9bde8" opacity="0.65" transform="rotate(-65 179 47)"/>
+      <ellipse cx="221" cy="47" rx="7" ry="11" fill="#c9bde8" opacity="0.65" transform="rotate(65 221 47)"/>
+      <circle cx="200" cy="40" r="4" fill="#e8e2f5" opacity="0.9"/>
+      <circle cx="200" cy="40" r="2" fill="#6B3FA0"/>
+    </g>
   </svg>
   <h1>Archives</h1>
   <p>Recovered pages from Women of MP3.com · 1999–2003</p>

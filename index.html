@@ -305,26 +305,41 @@
 <div class="hero">
   <div class="hero-label">Partial Archive · In Progress</div>
   <svg aria-hidden="true" focusable="false" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto 1.25rem;width:260px;max-width:100%;opacity:0.92;">
-    <!-- vinyl record -->
-    <circle cx="160" cy="88" r="58" fill="#2a1a4a" stroke="#9b6dd1" stroke-width="1.5"/>
-    <circle cx="160" cy="88" r="44" fill="none" stroke="#6B3FA0" stroke-width="0.8" opacity="0.6"/>
-    <circle cx="160" cy="88" r="30" fill="none" stroke="#6B3FA0" stroke-width="0.8" opacity="0.4"/>
-    <circle cx="160" cy="88" r="16" fill="none" stroke="#6B3FA0" stroke-width="0.8" opacity="0.3"/>
+    <style>@media (prefers-reduced-motion: reduce) { .spin, .float1, .float2, .float3, .float4, .sway { animation: none !important; } }</style>
+    <!-- vinyl record — slow spin -->
+    <g class="spin" style="transform-origin:160px 88px;animation:vinyl-spin 8s linear infinite;">
+      <circle cx="160" cy="88" r="58" fill="#2a1a4a" stroke="#9b6dd1" stroke-width="1.5"/>
+      <circle cx="160" cy="88" r="44" fill="none" stroke="#6B3FA0" stroke-width="0.8" opacity="0.6"/>
+      <circle cx="160" cy="88" r="30" fill="none" stroke="#6B3FA0" stroke-width="0.8" opacity="0.4"/>
+      <circle cx="160" cy="88" r="16" fill="none" stroke="#6B3FA0" stroke-width="0.8" opacity="0.3"/>
+    </g>
     <circle cx="160" cy="88" r="7" fill="#c9bde8"/>
     <circle cx="160" cy="88" r="3" fill="#2a1a4a"/>
-    <!-- orchid petals growing from record top -->
-    <ellipse cx="160" cy="38" rx="9" ry="16" fill="#9b6dd1" opacity="0.85" transform="rotate(-10 160 38)"/>
-    <ellipse cx="145" cy="34" rx="8" ry="14" fill="#6B3FA0" opacity="0.9" transform="rotate(-35 145 34)"/>
-    <ellipse cx="175" cy="34" rx="8" ry="14" fill="#6B3FA0" opacity="0.9" transform="rotate(35 175 34)"/>
-    <ellipse cx="136" cy="45" rx="7" ry="12" fill="#c9bde8" opacity="0.7" transform="rotate(-60 136 45)"/>
-    <ellipse cx="184" cy="45" rx="7" ry="12" fill="#c9bde8" opacity="0.7" transform="rotate(60 184 45)"/>
-    <!-- stem -->
-    <line x1="160" y1="88" x2="160" y2="52" stroke="#9b6dd1" stroke-width="2" stroke-linecap="round"/>
-    <!-- tiny music notes floating -->
-    <text x="104" y="62" font-size="13" fill="#c9bde8" opacity="0.7" font-family="serif">♪</text>
-    <text x="202" y="58" font-size="10" fill="#9b6dd1" opacity="0.6" font-family="serif">♫</text>
-    <text x="96" y="100" font-size="9" fill="#c9bde8" opacity="0.5" font-family="serif">♩</text>
-    <text x="214" y="96" font-size="11" fill="#9b6dd1" opacity="0.5" font-family="serif">♪</text>
+    <!-- orchid petals — gentle sway -->
+    <g class="sway" style="transform-origin:160px 88px;animation:petal-sway 4s ease-in-out infinite alternate;">
+      <ellipse cx="160" cy="38" rx="9" ry="16" fill="#9b6dd1" opacity="0.85" transform="rotate(-10 160 38)"/>
+      <ellipse cx="145" cy="34" rx="8" ry="14" fill="#6B3FA0" opacity="0.9" transform="rotate(-35 145 34)"/>
+      <ellipse cx="175" cy="34" rx="8" ry="14" fill="#6B3FA0" opacity="0.9" transform="rotate(35 175 34)"/>
+      <ellipse cx="136" cy="45" rx="7" ry="12" fill="#c9bde8" opacity="0.7" transform="rotate(-60 136 45)"/>
+      <ellipse cx="184" cy="45" rx="7" ry="12" fill="#c9bde8" opacity="0.7" transform="rotate(60 184 45)"/>
+      <line x1="160" y1="88" x2="160" y2="52" stroke="#9b6dd1" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <!-- notes drifting up and fading -->
+    <text class="float1" x="104" y="62" font-size="13" fill="#c9bde8" font-family="serif" style="animation:note-float 3.2s ease-in-out infinite;">♪</text>
+    <text class="float2" x="202" y="58" font-size="10" fill="#9b6dd1" font-family="serif" style="animation:note-float 4.1s ease-in-out 0.8s infinite;">♫</text>
+    <text class="float3" x="96" y="100" font-size="9" fill="#c9bde8" font-family="serif" style="animation:note-float 3.7s ease-in-out 1.5s infinite;">♩</text>
+    <text class="float4" x="214" y="96" font-size="11" fill="#9b6dd1" font-family="serif" style="animation:note-float 4.5s ease-in-out 0.3s infinite;">♪</text>
+    <defs>
+      <style>
+        @keyframes vinyl-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes petal-sway { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+        @keyframes note-float {
+          0%   { opacity: 0.6; transform: translateY(0); }
+          60%  { opacity: 0.8; transform: translateY(-10px); }
+          100% { opacity: 0;   transform: translateY(-20px); }
+        }
+      </style>
+    </defs>
   </svg>
   <h1>Women of <em>MP3.com</em></h1>
   <div class="hero-sub">Oct 1999 – 2003 &nbsp;·&nbsp; MP3.com Independent Music Platform</div>
@@ -333,7 +348,7 @@
 <div class="main-wrap">
 
   <div class="relic-notice">
-    <strong>Archive note:</strong> This is a partial recovery. Not all pages were saved before the platform's shutdown.
+    <strong>Archive note:</strong> Most of these pages were rescued from Archive.org (hence the rough-and-tumble look and feel). This is a partial recovery — not all pages were saved before the platform's shutdown.
     Some links and images in the original files are broken — they are preserved here as-is, as a relic of the era.
     MP3.com changed hands multiple times; not all issues and content survived the transitions.
   </div>

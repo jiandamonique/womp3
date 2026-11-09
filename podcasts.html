@@ -215,31 +215,40 @@
 <div class="hero">
   <div class="hero-label">Women of MP3.com</div>
   <svg aria-hidden="true" focusable="false" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto 1.25rem;width:260px;max-width:100%;opacity:0.9;">
-    <!-- waveform bars made of orchid petals / rounded bars -->
-    <rect x="30" y="68" width="10" height="20" rx="5" fill="#c9bde8" opacity="0.5"/>
-    <rect x="46" y="52" width="10" height="36" rx="5" fill="#9b6dd1" opacity="0.7"/>
-    <rect x="62" y="40" width="10" height="52" rx="5" fill="#6B3FA0" opacity="0.85"/>
-    <rect x="78" y="30" width="10" height="60" rx="5" fill="#9b6dd1"/>
-    <rect x="94" y="44" width="10" height="46" rx="5" fill="#c9bde8" opacity="0.8"/>
-    <rect x="110" y="34" width="10" height="56" rx="5" fill="#6B3FA0" opacity="0.9"/>
-    <rect x="126" y="52" width="10" height="38" rx="5" fill="#9b6dd1" opacity="0.75"/>
-    <!-- microphone in center -->
+    <defs>
+      <style>
+        @media (prefers-reduced-motion: reduce) { [class^="pb"] { animation: none !important; } }
+        @keyframes pb-breathe-tall { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(0.55); } }
+        @keyframes pb-breathe-mid  { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(0.7);  } }
+        @keyframes pb-breathe-low  { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(0.85); } }
+        @keyframes pb-arc-pulse { 0%,100% { opacity:0.6; stroke-width:1.5; } 50% { opacity:1; stroke-width:2.2; } }
+      </style>
+    </defs>
+    <!-- waveform bars — breathing staggered (transform-origin bottom center of each bar) -->
+    <rect class="pb3" x="30" y="68" width="10" height="20" rx="5" fill="#c9bde8" opacity="0.5" style="transform-origin:35px 88px;animation:pb-breathe-low 2.1s ease-in-out 0.6s infinite;"/>
+    <rect class="pb2" x="46" y="52" width="10" height="36" rx="5" fill="#9b6dd1" opacity="0.7" style="transform-origin:51px 88px;animation:pb-breathe-mid 2.1s ease-in-out 0.3s infinite;"/>
+    <rect class="pb1" x="62" y="40" width="10" height="52" rx="5" fill="#6B3FA0" opacity="0.85" style="transform-origin:67px 92px;animation:pb-breathe-tall 2.1s ease-in-out 0s infinite;"/>
+    <rect class="pb1" x="78" y="30" width="10" height="60" rx="5" fill="#9b6dd1" style="transform-origin:83px 90px;animation:pb-breathe-tall 2.1s ease-in-out 0.15s infinite;"/>
+    <rect class="pb2" x="94" y="44" width="10" height="46" rx="5" fill="#c9bde8" opacity="0.8" style="transform-origin:99px 90px;animation:pb-breathe-mid 2.1s ease-in-out 0.45s infinite;"/>
+    <rect class="pb1" x="110" y="34" width="10" height="56" rx="5" fill="#6B3FA0" opacity="0.9" style="transform-origin:115px 90px;animation:pb-breathe-tall 2.1s ease-in-out 0.6s infinite;"/>
+    <rect class="pb2" x="126" y="52" width="10" height="38" rx="5" fill="#9b6dd1" opacity="0.75" style="transform-origin:131px 90px;animation:pb-breathe-mid 2.1s ease-in-out 0.9s infinite;"/>
+    <!-- microphone static -->
     <rect x="150" y="38" width="20" height="34" rx="10" fill="#2a1a4a" stroke="#9b6dd1" stroke-width="2"/>
-    <rect x="155" y="58" width="10" height="14" rx="0" fill="#2a1a4a" stroke="none"/>
+    <rect x="155" y="58" width="10" height="14" rx="0" fill="#2a1a4a"/>
     <rect x="150" y="72" width="20" height="3" rx="1" fill="#9b6dd1"/>
     <line x1="160" y1="75" x2="160" y2="85" stroke="#9b6dd1" stroke-width="2" stroke-linecap="round"/>
     <rect x="152" y="85" width="16" height="3" rx="1" fill="#9b6dd1"/>
-    <!-- arc around mic -->
-    <path d="M140,55 Q138,72 145,82" fill="none" stroke="#c9bde8" stroke-width="1.5" opacity="0.6" stroke-dasharray="3,2"/>
-    <path d="M180,55 Q182,72 175,82" fill="none" stroke="#c9bde8" stroke-width="1.5" opacity="0.6" stroke-dasharray="3,2"/>
-    <!-- waveform bars right side -->
-    <rect x="184" y="52" width="10" height="38" rx="5" fill="#9b6dd1" opacity="0.75"/>
-    <rect x="200" y="34" width="10" height="56" rx="5" fill="#6B3FA0" opacity="0.9"/>
-    <rect x="216" y="44" width="10" height="46" rx="5" fill="#c9bde8" opacity="0.8"/>
-    <rect x="232" y="30" width="10" height="60" rx="5" fill="#9b6dd1"/>
-    <rect x="248" y="40" width="10" height="52" rx="5" fill="#6B3FA0" opacity="0.85"/>
-    <rect x="264" y="52" width="10" height="36" rx="5" fill="#9b6dd1" opacity="0.7"/>
-    <rect x="280" y="68" width="10" height="20" rx="5" fill="#c9bde8" opacity="0.5"/>
+    <!-- arc around mic — pulsing -->
+    <path class="pb-arc" d="M140,55 Q138,72 145,82" fill="none" stroke="#c9bde8" stroke-width="1.5" stroke-dasharray="3,2" style="animation:pb-arc-pulse 1.8s ease-in-out infinite;"/>
+    <path class="pb-arc" d="M180,55 Q182,72 175,82" fill="none" stroke="#c9bde8" stroke-width="1.5" stroke-dasharray="3,2" style="animation:pb-arc-pulse 1.8s ease-in-out 0.9s infinite;"/>
+    <!-- right bars mirrored -->
+    <rect class="pb2" x="184" y="52" width="10" height="38" rx="5" fill="#9b6dd1" opacity="0.75" style="transform-origin:189px 90px;animation:pb-breathe-mid 2.1s ease-in-out 0.9s infinite;"/>
+    <rect class="pb1" x="200" y="34" width="10" height="56" rx="5" fill="#6B3FA0" opacity="0.9" style="transform-origin:205px 90px;animation:pb-breathe-tall 2.1s ease-in-out 0.6s infinite;"/>
+    <rect class="pb2" x="216" y="44" width="10" height="46" rx="5" fill="#c9bde8" opacity="0.8" style="transform-origin:221px 90px;animation:pb-breathe-mid 2.1s ease-in-out 0.45s infinite;"/>
+    <rect class="pb1" x="232" y="30" width="10" height="60" rx="5" fill="#9b6dd1" style="transform-origin:237px 90px;animation:pb-breathe-tall 2.1s ease-in-out 0.15s infinite;"/>
+    <rect class="pb1" x="248" y="40" width="10" height="52" rx="5" fill="#6B3FA0" opacity="0.85" style="transform-origin:253px 92px;animation:pb-breathe-tall 2.1s ease-in-out 0s infinite;"/>
+    <rect class="pb2" x="264" y="52" width="10" height="36" rx="5" fill="#9b6dd1" opacity="0.7" style="transform-origin:269px 88px;animation:pb-breathe-mid 2.1s ease-in-out 0.3s infinite;"/>
+    <rect class="pb3" x="280" y="68" width="10" height="20" rx="5" fill="#c9bde8" opacity="0.5" style="transform-origin:285px 88px;animation:pb-breathe-low 2.1s ease-in-out 0.6s infinite;"/>
   </svg>
   <h1>Podcast Archive</h1>
   <div class="hero-sub">56 episodes · interviews with independent artists</div>
