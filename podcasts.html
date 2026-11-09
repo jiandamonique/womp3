@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podcasts — Women of MP3.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orchid: #6B3FA0;
+    --orchid-dark: #4a2b72;
+    --orchid-light: #9b6dd1;
+    --lavender: #e8e2f5;
+    --lavender-mid: #c9bde8;
+    --cream: #faf8f4;
+    --ink: #1a1a2e;
+    --muted: #5c5c7a;
+    --warm-white: #f5f2ec;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  .site-nav {
+    background: var(--orchid-dark);
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .site-nav .nav-brand {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--lavender-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+  .site-nav .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin-left: auto;
+    flex-wrap: wrap;
+  }
+  .site-nav .nav-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--lavender);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+  .site-nav .nav-links a:hover { opacity: 1; }
+  .site-nav .nav-links a.current { color: #fff; opacity: 1; border-bottom: 1px solid var(--orchid-light); }
+
+  .hero {
+    background: linear-gradient(135deg, var(--orchid-dark) 0%, var(--orchid) 60%, var(--orchid-light) 100%);
+    color: white;
+    padding: 3.5rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.025) 2px, rgba(255,255,255,0.025) 4px);
+  }
+  .hero-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lavender-mid);
+    margin-bottom: 0.75rem;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+    position: relative;
+  }
+  .hero .hero-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.65);
+    margin-top: 0.75rem;
+    position: relative;
+  }
+
+  .main-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  .context-block {
+    background: white;
+    border: 1px solid var(--lavender-mid);
+    border-left: 4px solid var(--orchid);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .context-block h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--orchid-dark);
+    margin-bottom: 0.75rem;
+  }
+  .context-block p {
+    font-size: 0.95rem;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.65;
+  }
+  .context-block p:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--orchid);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .episode-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .episode-card {
+    background: white;
+    border: 1px solid var(--lavender-mid);
+    border-top: 3px solid var(--orchid);
+    padding: 1.1rem 1.25rem;
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+  .episode-card:hover {
+    box-shadow: 0 4px 14px rgba(107,63,160,0.13);
+    transform: translateY(-2px);
+  }
+  .episode-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orchid);
+  }
+  .episode-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .episode-listen {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--orchid-light);
+    margin-top: 0.25rem;
+    letter-spacing: 0.04em;
+  }
+
+  .site-footer {
+    background: var(--orchid-dark);
+    color: var(--lavender-mid);
+    text-align: center;
+    padding: 2rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+  }
+  .site-footer a { color: var(--lavender); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Women of MP3.com</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="cybermuse.html">CyberMuse Column</a></li>
+    <li><a href="podcasts.html" class="current">Podcasts</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Women of MP3.com</div>
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto 1.25rem;width:260px;max-width:100%;opacity:0.9;">
+    <!-- waveform bars made of orchid petals / rounded bars -->
+    <rect x="30" y="68" width="10" height="20" rx="5" fill="#c9bde8" opacity="0.5"/>
+    <rect x="46" y="52" width="10" height="36" rx="5" fill="#9b6dd1" opacity="0.7"/>
+    <rect x="62" y="40" width="10" height="52" rx="5" fill="#6B3FA0" opacity="0.85"/>
+    <rect x="78" y="30" width="10" height="60" rx="5" fill="#9b6dd1"/>
+    <rect x="94" y="44" width="10" height="46" rx="5" fill="#c9bde8" opacity="0.8"/>
+    <rect x="110" y="34" width="10" height="56" rx="5" fill="#6B3FA0" opacity="0.9"/>
+    <rect x="126" y="52" width="10" height="38" rx="5" fill="#9b6dd1" opacity="0.75"/>
+    <!-- microphone in center -->
+    <rect x="150" y="38" width="20" height="34" rx="10" fill="#2a1a4a" stroke="#9b6dd1" stroke-width="2"/>
+    <rect x="155" y="58" width="10" height="14" rx="0" fill="#2a1a4a" stroke="none"/>
+    <rect x="150" y="72" width="20" height="3" rx="1" fill="#9b6dd1"/>
+    <line x1="160" y1="75" x2="160" y2="85" stroke="#9b6dd1" stroke-width="2" stroke-linecap="round"/>
+    <rect x="152" y="85" width="16" height="3" rx="1" fill="#9b6dd1"/>
+    <!-- arc around mic -->
+    <path d="M140,55 Q138,72 145,82" fill="none" stroke="#c9bde8" stroke-width="1.5" opacity="0.6" stroke-dasharray="3,2"/>
+    <path d="M180,55 Q182,72 175,82" fill="none" stroke="#c9bde8" stroke-width="1.5" opacity="0.6" stroke-dasharray="3,2"/>
+    <!-- waveform bars right side -->
+    <rect x="184" y="52" width="10" height="38" rx="5" fill="#9b6dd1" opacity="0.75"/>
+    <rect x="200" y="34" width="10" height="56" rx="5" fill="#6B3FA0" opacity="0.9"/>
+    <rect x="216" y="44" width="10" height="46" rx="5" fill="#c9bde8" opacity="0.8"/>
+    <rect x="232" y="30" width="10" height="60" rx="5" fill="#9b6dd1"/>
+    <rect x="248" y="40" width="10" height="52" rx="5" fill="#6B3FA0" opacity="0.85"/>
+    <rect x="264" y="52" width="10" height="36" rx="5" fill="#9b6dd1" opacity="0.7"/>
+    <rect x="280" y="68" width="10" height="20" rx="5" fill="#c9bde8" opacity="0.5"/>
+  </svg>
+  <h1>Podcast Archive</h1>
+  <div class="hero-sub">56 episodes · interviews with independent artists</div>
+</div>
+
+<div class="main-wrap">
+
+  <div class="context-block">
+    <h2>An Extension of Women of MP3.com</h2>
+    <p>This podcast archive grew directly out of the work at Women of MP3.com. Where the channel's CyberMuse column focused on women artists on the MP3.com platform, the podcast conversations extended the same editorial curiosity into audio — and to performers of all genders.</p>
+    <p>The same values drove both: independent music, direct conversation, genuine interest in how artists make and sustain their work. These 56 episodes were hosted on the Internet Archive and span the same era as the channel — from indie singer-songwriters to jazz musicians to alt-rock bands to electronic producers.</p>
+  </div>
+
+  <span class="section-label">56 Episodes — Archived</span>
+  <p style="font-family:'Space Mono',monospace;font-size:0.68rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.6;">Episode links open in a new tab on the Internet Archive.</p>
+
+  <div class="episode-grid">
+    <a class="episode-card" href="podcast-01.html" target="_blank" rel="noopener"><span class="episode-num">Episode 01</span><h3>Interview w/ Donnie</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-02.html" target="_blank" rel="noopener"><span class="episode-num">Episode 02</span><h3>Woman-Stirred Radio: Interview w/ Jianda Monique</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-03.html" target="_blank" rel="noopener"><span class="episode-num">Episode 03</span><h3>Interview w/ Stevie Salas</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-04.html" target="_blank" rel="noopener"><span class="episode-num">Episode 04</span><h3>Interview w/ Chris Lee</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-05.html" target="_blank" rel="noopener"><span class="episode-num">Episode 05</span><h3>Interview w/ ILYA</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-06.html" target="_blank" rel="noopener"><span class="episode-num">Episode 06</span><h3>Interview w/ Jane Siberry</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-07.html" target="_blank" rel="noopener"><span class="episode-num">Episode 07</span><h3>Interview w/ Blues Traveler</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-08.html" target="_blank" rel="noopener"><span class="episode-num">Episode 08</span><h3>Interview w/ Eric Johnson</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-09.html" target="_blank" rel="noopener"><span class="episode-num">Episode 09</span><h3>Interview w/ Goldspot</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-10.html" target="_blank" rel="noopener"><span class="episode-num">Episode 10</span><h3>Sol Rai Cafe Interviews Jianda</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-11.html" target="_blank" rel="noopener"><span class="episode-num">Episode 11</span><h3>Interview w/ Lian Amber, David Fiuczynski</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-12.html" target="_blank" rel="noopener"><span class="episode-num">Episode 12</span><h3>Interview w/ Tony Babinski</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-13.html" target="_blank" rel="noopener"><span class="episode-num">Episode 13</span><h3>Interview w/ Youngblood Brass Band</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-14.html" target="_blank" rel="noopener"><span class="episode-num">Episode 14</span><h3>Interview w/ Steven Santoro</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-15.html" target="_blank" rel="noopener"><span class="episode-num">Episode 15</span><h3>Interview w/ Julie Ritter</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-16.html" target="_blank" rel="noopener"><span class="episode-num">Episode 16</span><h3>Interview w/ John Jones</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-17.html" target="_blank" rel="noopener"><span class="episode-num">Episode 17</span><h3>Interview w/ King Britt</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-18.html" target="_blank" rel="noopener"><span class="episode-num">Episode 18</span><h3>Interview w/ Stanford Prison Experiment</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-19.html" target="_blank" rel="noopener"><span class="episode-num">Episode 19</span><h3>Interview w/ Gretchen Lieberum</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-20.html" target="_blank" rel="noopener"><span class="episode-num">Episode 20</span><h3>Interview w/ Cody ChesnuTT</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-21.html" target="_blank" rel="noopener"><span class="episode-num">Episode 21</span><h3>Interview w/ Mindi Abair</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-22.html" target="_blank" rel="noopener"><span class="episode-num">Episode 22</span><h3>Interview w/ Ben Arnold</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-23.html" target="_blank" rel="noopener"><span class="episode-num">Episode 23</span><h3>Interview w/ AB+</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-24.html" target="_blank" rel="noopener"><span class="episode-num">Episode 24</span><h3>Interview w/ Tre Hardson</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-25.html" target="_blank" rel="noopener"><span class="episode-num">Episode 25</span><h3>Interview w/ John Jones</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-26.html" target="_blank" rel="noopener"><span class="episode-num">Episode 26</span><h3>Interview w/ Supreme Beings of Leisure</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-27.html" target="_blank" rel="noopener"><span class="episode-num">Episode 27</span><h3>Interview w/ Innocence Mission</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-28.html" target="_blank" rel="noopener"><span class="episode-num">Episode 28</span><h3>Interview w/ Jasmine Lee</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-29.html" target="_blank" rel="noopener"><span class="episode-num">Episode 29</span><h3>Interview w/ Lisa Sanders</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-30.html" target="_blank" rel="noopener"><span class="episode-num">Episode 30</span><h3>Interview w/ Sophie B. Hawkins</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-31.html" target="_blank" rel="noopener"><span class="episode-num">Episode 31</span><h3>Interview w/ Mary Dolan</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-32.html" target="_blank" rel="noopener"><span class="episode-num">Episode 32</span><h3>Interview w/ Anya Marina</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-33.html" target="_blank" rel="noopener"><span class="episode-num">Episode 33</span><h3>Interview w/ Jason Luckett</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-34.html" target="_blank" rel="noopener"><span class="episode-num">Episode 34</span><h3>Interview w/ Gayle Brandeis</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-35.html" target="_blank" rel="noopener"><span class="episode-num">Episode 35</span><h3>Interview w/ Carlos Malcolm</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-36.html" target="_blank" rel="noopener"><span class="episode-num">Episode 36</span><h3>Interview w/ Daniel Rodriguez</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-37.html" target="_blank" rel="noopener"><span class="episode-num">Episode 37</span><h3>Interview w/ Leni Stern</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-38.html" target="_blank" rel="noopener"><span class="episode-num">Episode 38</span><h3>Interview w/ Badly Drawn Boy</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-39.html" target="_blank" rel="noopener"><span class="episode-num">Episode 39</span><h3>Interview w/ Syd</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-40.html" target="_blank" rel="noopener"><span class="episode-num">Episode 40</span><h3>Interview w/ Nadine Renee</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-41.html" target="_blank" rel="noopener"><span class="episode-num">Episode 41</span><h3>Interview w/ Todd Walton</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-42.html" target="_blank" rel="noopener"><span class="episode-num">Episode 42</span><h3>Interview w/ Azim Khamisa</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-43.html" target="_blank" rel="noopener"><span class="episode-num">Episode 43</span><h3>Interview w/ Lisa Cerbone</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-44.html" target="_blank" rel="noopener"><span class="episode-num">Episode 44</span><h3>Interview w/ Keri Smith</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-45.html" target="_blank" rel="noopener"><span class="episode-num">Episode 45</span><h3>Interview w/ Cyndi Lauper</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-46.html" target="_blank" rel="noopener"><span class="episode-num">Episode 46</span><h3>Interview w/ Rookie Card</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-47.html" target="_blank" rel="noopener"><span class="episode-num">Episode 47</span><h3>Interview w/ Josh Sklair</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-48.html" target="_blank" rel="noopener"><span class="episode-num">Episode 48</span><h3>Interview w/ SARK</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-49.html" target="_blank" rel="noopener"><span class="episode-num">Episode 49</span><h3>Interview w/ Philip Kaplan</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-50.html" target="_blank" rel="noopener"><span class="episode-num">Episode 50</span><h3>Interview w/ Beady Belle</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-51.html" target="_blank" rel="noopener"><span class="episode-num">Episode 51</span><h3>Interview w/ Rachael Sage</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-52.html" target="_blank" rel="noopener"><span class="episode-num">Episode 52</span><h3>Interview w/ Mason Jennings</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-53.html" target="_blank" rel="noopener"><span class="episode-num">Episode 53</span><h3>Interview w/ OK Go</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-54.html" target="_blank" rel="noopener"><span class="episode-num">Episode 54</span><h3>Interview w/ John Francis Peters</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-55.html" target="_blank" rel="noopener"><span class="episode-num">Episode 55</span><h3>Interview w/ Jason Luckett</h3><span class="episode-listen">Listen →</span></a>
+    <a class="episode-card" href="podcast-56.html" target="_blank" rel="noopener"><span class="episode-num">Episode 56</span><h3>Interview w/ Dishwalla</h3><span class="episode-listen">Listen →</span></a>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <a href="index.html">Women of MP3.com Archive</a> &nbsp;·&nbsp; Podcast Archive &nbsp;·&nbsp; 56 Episodes<br>
+  Original channel: Oct 1999 – 2003 &nbsp;·&nbsp; Sponsored by Sephora<br>
+  <a href="https://github.com/jiandamonique" target="_blank" rel="noopener" style="color:var(--orchid-light);text-decoration:none;">Editor of Archive: Jianda Monique</a>
+</footer>
+
+</body>
+</html>
